@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Init</title>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.16/"></script>
+
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <script>
+    require(
+      ["esri/Map",
+        "esri/views/MapView"],
+      
+      function(Map, MapView, SceneView) {
+        // create the Map an initial basemap
+        let map = new Map({
+          basemap: "streets-night-vector", //you can change the basemap to anather like topo or streets
+        });
+        // create line MapView and reference the map in the instance(example);
+        let view = new MapView({
+          container: "viewDiv",
+          map: map,
+          // setting zoom level
+          zoom: 18,
+
+          // centering the map to a cordinate using an array
+          center: [106.80140335579638, -6.236526299208338],
+
+        });
+         
+        let view2 = new SceneView ({
+          container: "viewDiv",
+          map: map,
+          zoom: 3,
+          center: [106.80140335579638, -6.236526299208338],
+        })
+      }
+    )
+  </script>
+</head>
+  <body>
+    <div id="viewDiv" style="float: top; width: 100%; height: 50%;"></div>
+    <div id="viewDiv" style="float: top; width: 100%; height: 50%;"></div>
+  </body>
+</html>
